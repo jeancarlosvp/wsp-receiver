@@ -4,6 +4,7 @@ const FormData = require('form-data');
 const qrcode = require('qrcode-terminal');
 
 const { Client, LocalAuth} = require('whatsapp-web.js');
+const { log } = require('console');
 const ALLOWED_NUMBERS = ['51938963486@c.us', '51900772778@c.us', '51991369684@c.us'];
 const apiUrl = 'http://localhost:8000/payments/upload_payment_file'; // Reemplaza 'puerto' y 'ruta' con los valores específicos de tu API
 const apiKey = 'keyprueba'; // Reemplaza 'tu_api_key' con tu clave de API
@@ -13,6 +14,7 @@ let sessionData;
 let client;
 
 const withSession = () => {
+    console.log("Cargando session");
     client = new Client({
         authStrategy: new LocalAuth({ clientId: "hola" }),
         puppeteer: { 
@@ -109,4 +111,4 @@ const listenMessage = () => {
 
 
 // Verificar si existe un archivo con credenciales de sesión
-(fs.existsSync(SESSION_FILE_PATH)) ? console.log('withSession') : withOutSession();
+(fs.existsSync(SESSION_FILE_PATH)) ? withSession() : withOutSession();
