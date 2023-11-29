@@ -29,6 +29,7 @@ const withSession = () => {
         sessionData = session;  
     });
 
+    console.log("Cargando session-3");
     client.on('ready', () => {
         console.log("El Cliente esta listo...\n");
         listenMessage();
