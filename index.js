@@ -23,6 +23,8 @@ const withSession = () => {
         }
     });
 
+    console.log("Cargando session-2");
+
     client.on('authenticated',session => {
         sessionData = session;  
     });
