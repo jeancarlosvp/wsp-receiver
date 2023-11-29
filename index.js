@@ -109,4 +109,4 @@ const listenMessage = () => {
 
 
 // Verificar si existe un archivo con credenciales de sesión
-(fs.existsSync(SESSION_FILE_PATH)) ? withSession() : withOutSession();
+(fs.existsSync(SESSION_FILE_PATH)) ? console.log('withSession') : withOutSession();s
