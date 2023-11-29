@@ -66,6 +66,7 @@ const withOutSession = () => {
 
 
 const listenMessage = () => {
+    console.log("Escuchando mensajes");
     client.on('message', async msg => {
         const {from, to, body} = msg;
         if (ALLOWED_NUMBERS.includes(from) ){
