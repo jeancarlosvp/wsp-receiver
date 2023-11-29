@@ -35,6 +35,7 @@ const withSession = () => {
         listenMessage();
     });
 
+    console.log("Cargando session-4");
     client.on('auth_failure', () => {
         console.log('Error de autenticacion vuelve a generar el QRCODE')
     })
