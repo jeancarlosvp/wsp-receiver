@@ -5,11 +5,10 @@ const qrcode = require('qrcode-terminal');
 
 const { Client } = require('whatsapp-web.js');
 const ALLOWED_NUMBERS = ['51938963486@c.us', '51900772778@c.us', '51991369684@c.us'];
-const apiUrl = 'http://localhost:8000/payments/upload_payment_file'; // Reemplaza 'puerto' y 'ruta' con los valores específicos de tu API
+const apiUrl = ' https://ocr-api-mrcash-f1c7fbc64f95.herokuapp.com/payments/'; // Reemplaza 'puerto' y 'ruta' con los valores específicos de tu API
 const apiKey = 'keyprueba'; // Reemplaza 'tu_api_key' con tu clave de API
 
 const client = new Client();
-// exports.client = client;
 
 client.on('qr', (qr) => {
     qrcode.generate(qr, { small: true });
@@ -45,7 +44,7 @@ client.on('message', async msg => {
                 const response = await axios.post(apiUrl, formData,{
                     headers: {
                         ...formData.getHeaders(),
-                        'API-LAMBDA-KEY': apiKey,
+                        'API-KEY': apiKey,
                       },
                 });
 
